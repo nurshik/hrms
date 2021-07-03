@@ -8,10 +8,7 @@ import org.junit.Assert;
 import pages.AddEmployeePage;
 import pages.DashBoardPage;
 import pages.EmployeeListPage;
-import utils.CommonMethods;
-import utils.ConfigReader;
-import utils.Constants;
-import utils.ExcelReading;
+import utils.*;
 
 import java.util.Iterator;
 import java.util.List;
@@ -107,11 +104,14 @@ public class AddEmployeesSteps extends CommonMethods {
         click(addEmployeePage.saveBtn);
         //aseertion complete as homework
        // Thread.sleep(3000);
-
-
+    }
     }
 
-
+    @When("capture the employeeId")
+    public void capture_the_employee_id() {
+       AddEmployeePage addEmployeePage=new AddEmployeePage();
+       GlobalVariables.empId=addEmployeePage.employeeId.getAttribute("value");
     }
+
 
 }

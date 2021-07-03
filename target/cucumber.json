@@ -1,0 +1,157 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "line": 2,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 3,
+            "name": "user is logged in with valid Admin credentials",
+            "match": {
+              "location": "steps.EmployeeSearchSteps.user_is_logged_in_with_valid_admin_credentials()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "user clicks on PIM option",
+            "match": {
+              "location": "steps.AddEmployeesSteps.user_clicks_on_pim_option()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "user clicks on Add employee button",
+            "match": {
+              "location": "steps.AddEmployeesSteps.user_clicks_on_add_employee_button()"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2021-07-03T15:49:22.954Z",
+        "before": [
+          {
+            "result": {
+              "duration": 2000000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "steps.Hooks.start()"
+            }
+          }
+        ],
+        "line": 43,
+        "name": "Add the employee and testing it from the backend",
+        "description": "",
+        "id": "add-employee;add-the-employee-and-testing-it-from-the-backend",
+        "after": [
+          {
+            "result": {
+              "status": "passed"
+            },
+            "match": {
+              "location": "steps.Hooks.end(io.cucumber.java.Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 44,
+            "name": "user enters firstname \"Jack123\" middlename \"Keith123\" and lastname \"Smith123\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Jack123\"",
+                  "offset": 22
+                },
+                {
+                  "val": "\"Keith123\"",
+                  "offset": 43
+                },
+                {
+                  "val": "\"Smith123\"",
+                  "offset": 67
+                }
+              ],
+              "location": "steps.AddEmployeesSteps.user_enters_firstname_middlename_and_lastname(java.lang.String,java.lang.String,java.lang.String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 45,
+            "name": "capture the employeeId",
+            "match": {},
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 46,
+            "name": "user clicks on save button option",
+            "match": {
+              "location": "steps.AddEmployeesSteps.user_clicks_on_save_button_option()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 47,
+            "name": "query HRMS database",
+            "match": {},
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 1000000,
+              "status": "skipped"
+            },
+            "line": 48,
+            "name": "verify the data from frontend and backend",
+            "match": {},
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@db"
+          }
+        ]
+      }
+    ],
+    "name": "Add employee",
+    "description": "",
+    "id": "add-employee",
+    "keyword": "Feature",
+    "uri": "file:src/test/resources/features/AddEmployees.feature",
+    "tags": []
+  }
+]
