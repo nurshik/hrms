@@ -41,6 +41,10 @@ public class AddEmployeesSteps extends CommonMethods {
         sendText(addEmp.firstName, firstname);
         sendText(addEmp.middleName,middlename);
         sendText(addEmp.lastName, lastname);
+        GlobalVariables.firstName=firstname;
+        GlobalVariables.middleName=middlename;
+        GlobalVariables.lastName=lastname;
+
     }
 
     @When("user enters firstname {string} middlename {string} and lastname {string} in the application")
@@ -49,6 +53,7 @@ public class AddEmployeesSteps extends CommonMethods {
         sendText(addEmp.firstName, FirstName);
         sendText(addEmp.middleName,MiddleName);
         sendText(addEmp.lastName, LastName);
+
     }
 
     @When("user clicks on save button option")
@@ -111,6 +116,22 @@ public class AddEmployeesSteps extends CommonMethods {
     public void capture_the_employee_id() {
        AddEmployeePage addEmployeePage=new AddEmployeePage();
        GlobalVariables.empId=addEmployeePage.employeeId.getAttribute("value");
+    }
+
+    @Then("verify the data from frontend and backend")
+    public void verify_the_data_from_frontend_and_backend() {
+        System.out.println("Backend");
+        System.out.println("DBFirstName "+GlobalVariables.dbFirstName);
+        System.out.println("DBMiddleName "+GlobalVariables.dbMiddleName);
+        System.out.println("DBLastName "+GlobalVariables.dbLastName);
+        System.out.println("Frontend");
+        System.out.println("FirstName "+GlobalVariables.firstName);
+        System.out.println("MiddleName "+GlobalVariables.middleName);
+        System.out.println("LastName "+GlobalVariables.lastName);
+        Assert.assertEquals(GlobalVariables.dbFirstName,GlobalVariables.firstName);
+        Assert.assertEquals(GlobalVariables.dbMiddleName,GlobalVariables.middleName);
+        Assert.assertEquals(GlobalVariables.dbLastName,GlobalVariables.lastName);
+
     }
 
 

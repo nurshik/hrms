@@ -15,7 +15,7 @@ import org.junit.runner.RunWith;
 
         //if we set dry run to true, it will quickly scan all gherkin steps are implemented
         //if it is true, then no actual execution happens
-        dryRun = true,
+        dryRun = false,
 
         //it means that console output for the cucumber test is easily readable
         //it will remove unreadable characters
