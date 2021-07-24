@@ -50,7 +50,7 @@ public class HardCodedExamples {
         Response response = preparedRequest.when().post("/createEmployee.php");
         //prettyPrint() does the same as System.out.println(response.asString());
         response.prettyPrint();
-        String emp_id=response.jsonPath().getString("Employee.employee_id");
+        emp_id=response.jsonPath().getString("Employee.employee_id");
         System.out.println(emp_id);
         /**
          * jsonPath() allows us to retrieve specific data from a json object - just like
@@ -76,8 +76,9 @@ public class HardCodedExamples {
     }
     @Test
     public void bGetCreatedEmployee() {
-        emp_id="23075A";
-        RequestSpecification preparedRequest = given().header("Authorization", token).header("Content-Type", "application/json").queryParam("employee_id", emp_id);
+        //emp_id="23075A";
+        RequestSpecification preparedRequest = given().header("Authorization", token)
+                .header("Content-Type", "application/json").queryParam("employee_id", emp_id);
 
         Response response = preparedRequest.when().get("/getOneEmployee.php");
 

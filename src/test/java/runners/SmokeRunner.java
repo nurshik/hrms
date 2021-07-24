@@ -25,7 +25,7 @@ import org.junit.runner.RunWith;
         // steps, it will give us an error and stops execution , also, it gives us a snippet of the code failed
         //strict = true
 
-        tags="@db",
+        tags="@smoke",
         // tags will identify the scenarios based on the tags we will provide such as @smoke, @regression, etc
         //we can add multiple tags in the runner class to execute scenarios belong to different tags, such as and, or
        plugin = {"pretty", "html:target/cucumber.html", "json:target/cucumber.json","rerun:target/failed.txt"}
