@@ -4,7 +4,7 @@ Background:
   When user clicks on PIM option
   And user clicks on Add employee button
 
-  @smoke
+  @smoke1
   Scenario: Adding employee from add employee page
     And user enters firstname, middlename and lastname
     And user clicks on save button option

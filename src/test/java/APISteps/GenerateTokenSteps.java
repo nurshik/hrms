@@ -8,7 +8,7 @@ import utils.APIConstants;
 import static io.restassured.RestAssured.*;
 
 public class GenerateTokenSteps {
-    static String token;
+    public static String token;
     @Given("JWT is generated")
     public void JWT_is_generated() {
         RequestSpecification generateTokenRequest = given().header("Content-type", "application/json")

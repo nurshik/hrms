@@ -14,6 +14,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.FixMethodOrder;
 import org.junit.runners.MethodSorters;
+import utils.APICommonMethods;
 import utils.APIConstants;
 import utils.APIPayloadConstants;
 
@@ -28,9 +29,8 @@ public class APIWorkflowSteps  {
 
     @Given("a request is prepared to create an employee")
     public void a_request_is_prepared_to_create_an_employee() {
-        request=given().header(APIConstants.Header_Content_type,APIConstants.Content_type)
-                .header(APIConstants.Header_Authorization,GenerateTokenSteps.token)
-                .body(APIPayloadConstants.createEmployeePayload());
+        APICommonMethods.createEmployeeRequest(APIPayloadConstants.createEmployeeBody());
+
     }
 
     @When("a POST call is made to create an employee")
@@ -57,6 +57,7 @@ public class APIWorkflowSteps  {
 ///////////////////////////////////////////////////////////////////////////////////////
     @Given("a request is prepared to retrieve the created employee")
     public void a_request_is_prepared_to_retrieve_the_created_employee() {
+
         request=given().header(APIConstants.Header_Authorization,GenerateTokenSteps.token)
                 .header(APIConstants.Header_Content_type,APIConstants.Content_type)
                 .queryParams("employee_id",employee_id);
@@ -95,4 +96,12 @@ public class APIWorkflowSteps  {
       Assert.assertEquals(empID2,employee_id);
     }
 
+    @Given("a request is prepared an employee with dynamic data: {string},{string}, {string}, {string},{string},{string},{string}")
+    public void a_request_is_prepared_an_employee_with_dynamic_data(String firstName, String lastName, String middleName, String gender
+            ,String employeeBday, String employeeStatus, String employeeJobTitle) {
+        request=given().header(APIConstants.Header_Content_type,APIConstants.Content_type)
+                .header(APIConstants.Header_Authorization,GenerateTokenSteps.token)
+                .body(APIPayloadConstants.createEmployeeBodyMoreDynamic(firstName, lastName, middleName, gender
+                        ,employeeBday, employeeStatus, employeeJobTitle));
+    }
 }
